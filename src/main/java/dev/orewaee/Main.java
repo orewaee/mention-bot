@@ -6,12 +6,14 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public class Main {
     public static void main(String[] args) throws TelegramApiException {
-        if (args.length == 0) {
+        String token = System.getenv("BOT_TOKEN");
+
+        if (token == null) {
             System.out.println("Missing token!");
             return;
         }
 
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-        telegramBotsApi.registerBot(new MentionsBot(args[0]));
+        telegramBotsApi.registerBot(new MentionsBot(token));
     }
 }
