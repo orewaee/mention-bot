@@ -25,7 +25,11 @@ To do this, download the jar file from the latest release or build it yourself:
 .\gradlew shadowJar
 ```
 
-After that, run the `jar` file, having first created the BOT_TOKEN environment variable:
+After that, run the `jar` file, having first created the `BOT_TOKEN` environment variable:
 ```shell
 java -jar MentionsBot-1.0.0.jar
 ```
+
+#### TODO
+- [ ] Make different name sources for different groups
+- [ ] Add the ability to manage names through commands
