@@ -19,33 +19,6 @@ public class MentionsBot extends TelegramLongPollingBot {
         super(botToken);
     }
 
-    private void createFile(Path path) throws IOException {
-        if (Files.exists(path)) return;
-
-        InputStream stream = Main.class.getResourceAsStream("/names.txt");
-
-        if (stream == null) return;
-
-        Files.copy(stream, path);
-
-        stream.close();
-    }
-
-    private String getMentions() throws IOException {
-        StringJoiner result = new StringJoiner(", ");
-
-        Path path = Path.of("names.txt");
-
-        createFile(path);
-
-        Scanner scanner = new Scanner(path);
-
-        while (scanner.hasNextLine())
-            result.add("@" + scanner.nextLine());
-
-        return result + "";
-    }
-
     @Override
     public void onUpdateReceived(Update update) {
         if (!update.hasMessage()) return;
@@ -64,11 +37,16 @@ public class MentionsBot extends TelegramLongPollingBot {
 
         if (!text.contains("@all")) return;
 
+        Long chatId = chat.getId();
+        String mentions = MentionManager.getInstance().getMentionsByChatId(chatId);
+
+        if (mentions.isEmpty()) return;
+
         SendMessage sendMessage = new SendMessage();
 
         try {
             sendMessage.setChatId(message.getChatId());
-            sendMessage.setText(getMentions());
+            sendMessage.setText(mentions);
 
             execute(sendMessage);
         } catch (Exception exception) {
