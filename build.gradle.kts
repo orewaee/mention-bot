@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.orewaee"
-version = "1.0.0"
+version = "1.1.0"
 
 application {
     mainClass = "dev.orewaee.Main"
@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
     implementation("org.telegram:telegrambots:6.8.0")
+    implementation("org.telegram:telegrambotsextensions:6.8.0")
 }
 
 tasks {

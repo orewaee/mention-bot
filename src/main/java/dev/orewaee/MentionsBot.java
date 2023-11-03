@@ -1,26 +1,23 @@
 package dev.orewaee;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Scanner;
-import java.util.StringJoiner;
-
-import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-public class MentionsBot extends TelegramLongPollingBot {
+import dev.orewaee.commands.SetCommand;
+import dev.orewaee.managers.MentionManager;
+
+public class MentionsBot extends TelegramLongPollingCommandBot {
     public MentionsBot(String botToken) {
         super(botToken);
+
+        register(new SetCommand());
     }
 
     @Override
-    public void onUpdateReceived(Update update) {
+    public void processNonCommandUpdate(Update update) {
         if (!update.hasMessage()) return;
 
         Message message = update.getMessage();
@@ -44,10 +41,10 @@ public class MentionsBot extends TelegramLongPollingBot {
 
         SendMessage sendMessage = new SendMessage();
 
-        try {
-            sendMessage.setChatId(message.getChatId());
-            sendMessage.setText(mentions);
+        sendMessage.setChatId(message.getChatId());
+        sendMessage.setText(mentions);
 
+        try {
             execute(sendMessage);
         } catch (Exception exception) {
             exception.printStackTrace();

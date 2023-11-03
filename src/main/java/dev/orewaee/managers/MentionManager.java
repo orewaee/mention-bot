@@ -1,5 +1,6 @@
-package dev.orewaee;
+package dev.orewaee.managers;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,7 +27,7 @@ public class MentionManager {
         return instance;
     }
 
-    public String getMentionsByChatId(Long chatId) {
+    public String getMentionsByChatId(long chatId) {
         StringJoiner mentions = new StringJoiner(", ");
 
         Path path = directory.resolve(chatId + ".txt");
@@ -43,5 +44,21 @@ public class MentionManager {
         }
 
         return mentions + "";
+    }
+
+    public void setMentionsByChatId(long chatId, String[] array) {
+        Path path = directory.resolve(chatId + ".txt");
+
+        try {
+            if (!Files.exists(path)) Files.createFile(path);
+
+            BufferedWriter writer = Files.newBufferedWriter(path);
+
+            writer.write(String.join("\n", array));
+
+            writer.close();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }

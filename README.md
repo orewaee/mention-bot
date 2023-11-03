@@ -27,9 +27,9 @@ To do this, download the jar file from the latest release or build it yourself:
 
 After that, run the `jar` file, having first created the `BOT_TOKEN` environment variable:
 ```shell
-java -jar MentionsBot-1.0.0.jar
+java -jar MentionsBot-1.1.0.jar
 ```
 
 #### TODO
-- [ ] Make different name sources for different groups
-- [ ] Add the ability to manage names through commands
+- [x] Make different name sources for different groups
+- [x] Add the ability to manage names through commands
