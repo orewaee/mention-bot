@@ -15,7 +15,7 @@ docker build -t mentions-bot .
 Next, launch the container based on the image you just created:
 
 ```shell
-docker run --name mentions-bot -d -e BOT_TOKEN='' mentions-bot
+docker run --name mentions-bot -d -e BOT_TOKEN="" mentions-bot
 ```
 
 #### Fat Jar
@@ -29,7 +29,3 @@ After that, run the `jar` file, having first created the `BOT_TOKEN` environment
 ```shell
 java -jar MentionsBot-1.1.0.jar
 ```
-
-#### TODO
-- [x] Make different name sources for different groups
-- [x] Add the ability to manage names through commands
