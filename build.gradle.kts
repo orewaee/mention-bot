@@ -11,7 +11,6 @@ application {
     mainClass = "dev.orewaee.Main"
 }
 
-
 repositories {
     mavenCentral()
 }
