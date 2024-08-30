@@ -1,3 +1,6 @@
 [versions]
+telegrambots = "7.9.1"
 
 [libraries]
+telegrambots-longpolling = { module = "org.telegram:telegrambots-longpolling", version.ref = "telegrambots" }
+telegrambots-client = { module = "org.telegram:telegrambots-client", version.ref = "telegrambots" }

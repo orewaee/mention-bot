@@ -1,2 +1,1 @@
-rootProject.name = "MentionsBot"
-
+rootProject.name = "mention-bot"
