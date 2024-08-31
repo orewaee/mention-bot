@@ -1,0 +1,10 @@
+chat:
+  id: 123456789
+  admins: [314159265]
+mentions:
+  - name: "all"
+    names: ["foo", "bar"]
+    whitelist: [314159265]
+  - name: "moderators"
+    names: ["foo"]
+    whitelist: [314159265, 271828182]
