@@ -18,13 +18,12 @@ repositories {
 dependencies {
     implementation(libs.telegrambots.longpolling)
     implementation(libs.telegrambots.client)
-    implementation("org.yaml:snakeyaml:2.2")
+    implementation(libs.snakeyaml)
 }
 
 tasks {
     withType<JavaCompile> {
         options.encoding = "UTF-8"
-        // options.release = 21
     }
 
     shadowJar {
