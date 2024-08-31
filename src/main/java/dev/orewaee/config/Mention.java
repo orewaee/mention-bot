@@ -3,10 +3,11 @@ package dev.orewaee.config;
 import java.util.List;
 
 public class Mention {
-    private String name;
+    // private String name;
     private List<String> names;
     private List<Long> whitelist;
 
+    /*
     public String getName() {
         return name;
     }
@@ -14,6 +15,7 @@ public class Mention {
     public void setName(String name) {
         this.name = name;
     }
+    */
 
     public List<String> getNames() {
         return names;
@@ -33,6 +35,6 @@ public class Mention {
 
     @Override
     public String toString() {
-        return String.format("Mention[name=%s names=%s whitelist=%s]", name, names, whitelist);
+        return String.format("Mention[name=%s names=%s whitelist=%s]", "123", names, whitelist);
     }
 }

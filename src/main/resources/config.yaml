@@ -2,9 +2,9 @@ chat:
   id: 123456789
   admins: [314159265]
 mentions:
-  - name: "all"
+  all:
     names: ["foo", "bar"]
     whitelist: [314159265]
-  - name: "moderators"
+  moderators:
     names: ["foo"]
     whitelist: [314159265, 271828182]

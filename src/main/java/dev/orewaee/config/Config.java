@@ -1,10 +1,11 @@
 package dev.orewaee.config;
 
 import java.util.List;
+import java.util.Map;
 
 public class Config {
     private Chat chat;
-    private List<Mention> mentions;
+    private Map<String, Mention> mentions;
 
     public Chat getChat() {
         return chat;
@@ -14,11 +15,11 @@ public class Config {
         this.chat = chat;
     }
 
-    public List<Mention> getMentions() {
+    public Map<String, Mention> getMentions() {
         return mentions;
     }
 
-    public void setMentions(List<Mention> mentions) {
+    public void setMentions(Map<String, Mention> mentions) {
         this.mentions = mentions;
     }
 
