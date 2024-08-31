@@ -2,9 +2,7 @@ package dev.orewaee;
 
 import java.nio.file.Path;
 import java.io.IOException;
-import java.util.Map;
 
-import dev.orewaee.config.Mention;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
 import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;

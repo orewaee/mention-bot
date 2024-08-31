@@ -46,7 +46,7 @@ public class UpdateConsumer implements LongPollingSingleThreadUpdateConsumer {
         }
 
         Config config = configManager.getConfig();
-        if (chatId != config.getChat().getId()) return;
+        if (chatId != config.getChat()) return;
 
         String text = message.getText();
         if (!text.startsWith("/")) return;
@@ -56,7 +56,7 @@ public class UpdateConsumer implements LongPollingSingleThreadUpdateConsumer {
 
         Mention mention = config.getMentions().get(text);
         if (mention == null) return;
-        if (!mention.getWhitelist().contains(userId)) return;
+        if (!mention.getWhitelist().contains(userId) && !config.getSuperusers().contains(userId)) return;
 
         StringJoiner names = new StringJoiner(" ");
         for (String name : mention.getNames()) names.add("@" + name);
