@@ -1,17 +1,27 @@
 package dev.orewaee.config;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Config {
-    private Chat chat;
+    private Set<Long> superusers;
+    private Long chat;
     private Map<String, Mention> mentions;
 
-    public Chat getChat() {
+
+    public Set<Long> getSuperusers() {
+        return superusers;
+    }
+
+    public void setSuperusers(Set<Long> superusers) {
+        this.superusers = superusers;
+    }
+
+    public Long getChat() {
         return chat;
     }
 
-    public void setChat(Chat chat) {
+    public void setChat(Long chat) {
         this.chat = chat;
     }
 
@@ -25,6 +35,6 @@ public class Config {
 
     @Override
     public String toString() {
-        return String.format("Config[chat=%s mentions=%s]", chat, mentions);
+        return String.format("Config[superusers=%s chat=%s mentions=%s]", superusers, chat, mentions);
     }
 }

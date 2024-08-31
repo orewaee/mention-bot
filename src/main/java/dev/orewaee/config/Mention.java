@@ -1,40 +1,29 @@
 package dev.orewaee.config;
 
-import java.util.List;
+import java.util.Set;
 
 public class Mention {
-    // private String name;
-    private List<String> names;
-    private List<Long> whitelist;
+    private Set<String> names;
+    private Set<Long> whitelist;
 
-    /*
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    */
-
-    public List<String> getNames() {
+    public Set<String> getNames() {
         return names;
     }
 
-    public void setNames(List<String> names) {
+    public void setNames(Set<String> names) {
         this.names = names;
     }
 
-    public List<Long> getWhitelist() {
+    public Set<Long> getWhitelist() {
         return whitelist;
     }
 
-    public void setWhitelist(List<Long> whitelist) {
+    public void setWhitelist(Set<Long> whitelist) {
         this.whitelist = whitelist;
     }
 
     @Override
     public String toString() {
-        return String.format("Mention[name=%s names=%s whitelist=%s]", "123", names, whitelist);
+        return String.format("Mention[names=%s whitelist=%s]", names, whitelist);
     }
 }
