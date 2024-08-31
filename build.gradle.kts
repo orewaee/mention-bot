@@ -1,24 +1,24 @@
 plugins {
-    id("java")
-    id("application")
+    java
+    application
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "dev.orewaee"
-version = "1.1.0"
+version = "2.0.0"
 
 application {
     mainClass = "dev.orewaee.Main"
 }
-
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.telegram:telegrambots:6.8.0")
-    implementation("org.telegram:telegrambotsextensions:6.8.0")
+    implementation(libs.telegrambots.longpolling)
+    implementation(libs.telegrambots.client)
+    implementation(libs.snakeyaml)
 }
 
 tasks {
@@ -27,6 +27,6 @@ tasks {
     }
 
     shadowJar {
-        archiveFileName.set("MentionsBot-$version.jar")
+        archiveFileName = "${rootProject.name}-$version.jar"
     }
 }

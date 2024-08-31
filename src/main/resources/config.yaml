@@ -1,0 +1,9 @@
+superusers: [314159265]
+chat: 123456789
+mentions:
+  all:
+    names: ["foo", "bar"]
+    whitelist: [314159265]
+  moderators:
+    names: ["foo"]
+    whitelist: [314159265, 271828182]
